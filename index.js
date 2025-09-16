@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import helmet from "helmet";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import A01CreatePackage from "./routes/A01CreatePackage.js";
 
 const app = express();
 app.use(helmet());
@@ -70,6 +71,8 @@ app.post("/api/logout", (req, res) => {
 app.get("/api/me", requireAuth, (req, res) => {
   res.json({ user: { id: req.user.id, username: req.user.username } });
 });
+
+app.use("/A01CreatePackage", A01CreatePackage);
 
 app.listen(3000, () => {
   console.log("Auth server running on http://localhost:3000");
