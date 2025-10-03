@@ -6,6 +6,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import A01CreatePackage from "./routes/A01CreatePackage.js";
 import A02CreateUser from "./routes/A02CreateUser.js";
+import A03CreateCustomer from "./routes/A03CreateCustomer.js";
 
 const app = express();
 app.use(helmet());
@@ -75,6 +76,7 @@ app.get("/api/me", requireAuth, (req, res) => {
 
 app.use("/A01CreatePackage", A01CreatePackage);
 app.use("/A02CreateUser",A02CreateUser)
+app.use("/A03CreateCustomer", A03CreateCustomer);
 
 app.listen(3000, () => {
   console.log("Auth server running on http://localhost:3000");
